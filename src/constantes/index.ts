@@ -33,10 +33,10 @@ export const loginInputs:AuthInputsProps[] = [
 
 export const registerInputs:AuthInputsProps[] = [
   {
-    label:"Login",
+    label:"Email",
     type:"text",
-    name:"login",
-    placeholder:"digite seu login",
+    name:"email",
+    placeholder:"digite seu email",
   },
   {
     label:"password",
@@ -51,6 +51,7 @@ export const registerInputs:AuthInputsProps[] = [
     placeholder:"confirme sua senha"
   }
 ]
+
 //mock 
 export const portalAdventureConteiners:PortalAdventureContainerProps[]=[
   {
