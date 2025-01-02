@@ -11,3 +11,20 @@ export type AuthInputsProps = {
   value?:string,
 }
 
+export type PortalAdventureBoxProps = {
+  title: string;
+  description: string;
+  difficulty: 'fácil' | 'moderado' | 'difícil';
+  category: string;
+  rating?: number;
+  maxParticipants?: number;
+  included?: string[];
+  isAvailable?: boolean;
+}
+
+
+export type PortalAdventureContainerProps = {
+  title:string,
+  subtitle:string,
+  box?:PortalAdventureBoxProps[]
+}
