@@ -1,5 +1,5 @@
 import { PortalAdventureBoxProps } from '@/types/ui'
-import React from 'react'
+
 
 const colorMaps = {
   'fácil':"text-green-500",
