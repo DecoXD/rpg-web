@@ -1,4 +1,4 @@
-import { Client, Databases, Storage } from 'appwrite';
+import { Account, Client, Databases, Storage } from 'appwrite';
 const client = new Client()
     .setEndpoint('https://cloud.appwrite.io/v1')
     .setProject('6772e6ed00242e76930c');
@@ -21,3 +21,8 @@ export const appwriteConfig = {
         charsImages: '6772e72400308893f53d'
     }
 };
+
+const account = new Account(client);
+
+export { ID } from 'appwrite'
+export { account }

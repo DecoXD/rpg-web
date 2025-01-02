@@ -19,6 +19,7 @@ const PortalAdventureContainer = ({title,subtitle,box}:PortalAdventureContainerP
          ))        
         }
       </div>
+      
     </section>
   )
 }

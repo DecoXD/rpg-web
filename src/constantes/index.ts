@@ -51,7 +51,7 @@ export const registerInputs:AuthInputsProps[] = [
     placeholder:"confirme sua senha"
   }
 ]
-
+//mock 
 export const portalAdventureConteiners:PortalAdventureContainerProps[]=[
   {
     title:"Suas Campanhas",
@@ -74,19 +74,7 @@ export const portalAdventureConteiners:PortalAdventureContainerProps[]=[
         category:"RPG Medieval",
         description:"queijo coalho com melaço é muito baum.",
         difficulty:"fácil"
-      },
-      {
-        title:"Hanoi Tower Sage",
-        category:"RPG Medieval",
-        description:"queijo coalho com melaço é muito baum.",
-        difficulty:"fácil"
-      },
-      {
-        title:"Hanoi Tower Sage",
-        category:"RPG Medieval",
-        description:"queijo coalho com melaço é muito baum.",
-        difficulty:"fácil"
-      },
+      }
     ]
   },
 ]
