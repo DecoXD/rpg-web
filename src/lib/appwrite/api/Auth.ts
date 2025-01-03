@@ -9,6 +9,7 @@ export async function createAccount(credentials:UserCredentials):Promise<AuthRes
     credentials.email,
     credentials.password
   )
+  
   return {
     success:true,
     message:"conta criada com sucesso",
@@ -27,10 +28,12 @@ export async function createAccount(credentials:UserCredentials):Promise<AuthRes
 export async function login({email,password}:UserCredentials):Promise<AuthResponse> {
   try {
     const user = await account.createEmailPasswordSession(email, password);
+    
     return {
       success:true,
       message:'usuário logado com sucesso',
-      userId:user.$id
+      userId:user.$id,
+      
     }
   } catch (err) {
     const error = err as Error 

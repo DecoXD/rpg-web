@@ -18,10 +18,10 @@ export const NavbarItens:NavbarItensProps[] = [
 
 export const loginInputs:AuthInputsProps[] = [
   {
-    label:"login",
+    label:"email",
     type:"text",
-    name:"login",
-    placeholder:"digite seu login",
+    name:"email",
+    placeholder:"digite seu email",
   },
   {
     label:"password",

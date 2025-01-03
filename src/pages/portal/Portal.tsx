@@ -22,9 +22,9 @@ const Portal = () => {
         
           <div className="flex gap-10 justify-center w-full">
           
-              <Button className='py-5 px-10 bg-white text-black border-amber-300 border-2 hover:bg-amber-300'><Plus/> Criar Campanha</Button>       
+              <Button className='py-5 px-10 bg-amber-300/60 text-black border-amber-300 border-2 hover:bg-amber-300'><Plus/> Criar Campanha</Button>       
           
-              <Button className='py-5 px-10 bg-white text-black border-amber-300 border-2 hover:bg-amber-300'><Play/>Entrar em Campanha</Button>
+              <Button className='py-5 px-10 bg-amber-300/60 text-black border-amber-300 border-2 hover:bg-amber-300'><Play/>Entrar em Campanha</Button>
        
         </div>
       </section>

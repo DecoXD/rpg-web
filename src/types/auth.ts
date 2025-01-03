@@ -9,4 +9,5 @@ export type AuthResponse = {
   success: boolean;
   message: string;
   userId?: string;
+  accountSection?:string
 } 
