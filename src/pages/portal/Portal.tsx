@@ -3,7 +3,7 @@ import PortalAdventureContainer from '@/components/shared/PortalAdventureContain
 import { Button } from '@/components/ui/button'
 import { portalAdventureConteiners } from '@/constantes'
 import { Play, Plus } from 'lucide-react'
-import React from 'react'
+
 
 const Portal = () => {
   return (
@@ -15,8 +15,8 @@ const Portal = () => {
 
       <section className='flex flex-wrap p-4 gap-10 w-full lg:justify-between max-w-6xl justify-center'>
         {
-          portalAdventureConteiners.map((item)=>(
-            <PortalAdventureContainer {...item}/>
+          portalAdventureConteiners.map((item,idx)=>(
+            <PortalAdventureContainer {...item} key={item.title + idx}/>
           ))
         }
         

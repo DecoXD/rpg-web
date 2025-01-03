@@ -22,7 +22,9 @@ export enum EquipmentRarity {
 }
 
 export type Equipment = {
-  discription:string,
+  id:number;
+  name:string;
+  description:string,
   equipmentType:EquipmentType
   skills?:string[];
   element:EquipmentElement

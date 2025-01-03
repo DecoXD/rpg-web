@@ -4,6 +4,7 @@ import { Accessories, Armour, Equipment, Weapon } from './equipment';
 
 
 export interface CharacterStatus {
+  id:number
   hp: {
     current: number;
     max: number;
@@ -15,6 +16,7 @@ export interface CharacterStatus {
 }
 
 export interface CharacterAttributes {
+  id:number
   strength: number;
   ability: number;
   armour: number;
@@ -35,13 +37,32 @@ export type CharEquipment = {
 }
 
 
-export interface Character extends Models.Document {
+export type Experience= {
+  level:number
+  currentExp:number
+  nextLevelExp:number
+}
+
+export interface Character /*extends Models.Document*/ {
+  id:number;
   name: string;
   level: number;
   imageUrl?: string;
   gold: number;
-  equipment:CharEquipment
-  attributes: CharacterAttributes;
-  status: CharacterStatus;
-  inventory: Equipment[];
+  equipmentId:number
+  attributesId: number;
+  statusId: number;
+  inventoryId: number;
 }
+
+// export interface Character extends Models.Document {
+//   id:number;
+//   name: string;
+//   level: number;
+//   imageUrl?: string;
+//   gold: number;
+//   equipment:CharEquipment
+//   attributes: CharacterAttributes;
+//   status: CharacterStatus;
+//   inventory: Equipment[];
+// }

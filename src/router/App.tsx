@@ -1,6 +1,7 @@
 import Login from "@/__AUTH__/Login"
 import Register from "@/__AUTH__/Register"
 import Layout from "@/layout/Layout"
+import CharacterSheet from "@/pages/CharacterSheet/CharacterSheet"
 import Portal from "@/pages/portal/Portal"
 import { ReactNode } from "react"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         path:"/login",
         element:<Login/>
       },
+      {
+        path:'/charsheet',
+        element:<CharacterSheet/>
+      }
       
     ]
     
