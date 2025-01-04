@@ -11,6 +11,7 @@ export const mockCharacterList:Character[] = [
     gold:120,
     inventoryId:1,
     statusId:1,
+    skillsId:[1],
     level:120
   }
 ]
@@ -48,12 +49,12 @@ export const mockCharacterAttributes:CharacterAttributes = {
 export const mockCharacterStatus:CharacterStatus = {
   id:1,
   hp: {
-    current: 100,
-    max: 100
+    current: 487,
+    max: 637
   },
   mp: {
-    current: 50,
-    max: 50
+    current: 5,
+    max: 10
   }
 }
 

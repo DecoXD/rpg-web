@@ -31,6 +31,7 @@ const AuthForm = ({inputs,onSubmit,buttonLabel,title,linkHref,linkLabel,linkName
         {
           errorMessage && <p>{errorMessage}</p>
         }
+        
     
     </div>
   )

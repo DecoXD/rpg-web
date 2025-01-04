@@ -51,7 +51,7 @@ const CharacterStatus = ({statusId}:CharacterStatusProps) => {
   }
 
   return (
-    <section className="p-4 w-full mt-10 flex flex-col gap-2 border-[1px] border-amber-300 max-w-xl  rounded-lg">
+    <section className="p-4 w-full  flex flex-col gap-2 border-[1px] border-amber-300/50 shadow-md max-w-xl  rounded-lg">
       <h3 className="flex font-medieval gap-2 text-xl uppercase"><Heart className="text-red-400"/> Status</h3>
         <ul className=" flex flex-col gap-2  ">
           {

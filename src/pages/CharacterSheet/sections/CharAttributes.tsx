@@ -19,10 +19,10 @@ const CharAttributes = ({attributesId}:CharAttributesProps) => {
 
   const attributesMap = Object.keys(attributes)
   
-  console.log(attributes)
+ 
   return (
     <section className='w-full '>
-        <div className=" flex flex-col gap-4 p-2 w-full max-w-xl border-[1px] border-amber-400 rounded-lg">
+        <div className=" flex flex-col gap-4 p-2 w-full max-w-xl border-[1px] border-amber-300/50 shadow-md rounded-lg">
           <h3 className='font-medieval text-xl uppercase  flex gap-2 items-center'> <Swords className='text-slate-300'/> ATTRIBUTES</h3>
           <ul className='font-medieval '>
             {
