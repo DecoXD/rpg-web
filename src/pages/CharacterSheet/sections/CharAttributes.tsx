@@ -1,6 +1,7 @@
 import { getCharacterAttributesById } from '@/_MOCKS_/mockApi'
 
 import { CharacterAttributes } from '@/types/characters'
+import { Swords } from 'lucide-react'
 
 type CharAttributesProps = {
   attributesId:number | undefined
@@ -20,9 +21,9 @@ const CharAttributes = ({attributesId}:CharAttributesProps) => {
   
   console.log(attributes)
   return (
-    <section className='w-full'>
+    <section className='w-full '>
         <div className=" flex flex-col gap-4 p-2 w-full max-w-xl border-[1px] border-amber-400 rounded-lg">
-          <h3 className='font-medieval text-xl uppercase text-amber-300'>ATTRIBUTES</h3>
+          <h3 className='font-medieval text-xl uppercase  flex gap-2 items-center'> <Swords className='text-slate-300'/> ATTRIBUTES</h3>
           <ul className='font-medieval '>
             {
               attributesMap.map((attr,idx) =>{
