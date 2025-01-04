@@ -1,6 +1,7 @@
 import { Character } from "@/types/characters";
 import { CharEquipment, CharacterAttributes, CharacterStatus, } from "@/types/characters"
 import { Weapon,Equipment, EquipmentType, EquipmentElement, EquipmentRarity } from "@/types/equipment"
+import {  DamageSkill,  SkillDamageType,  CharAttributeList, SkillType, SupportSkill, SupportSkillType, PassiveSkill, CharSkills} from "@/types/Skills";
 
 export const mockCharacterList:Character[] = [
   {
@@ -11,7 +12,7 @@ export const mockCharacterList:Character[] = [
     gold:120,
     inventoryId:1,
     statusId:1,
-    skillsId:[1],
+    skillsListId:1,
     level:120
   }
 ]
@@ -63,8 +64,70 @@ export const mockCharacterInventory:Equipment[] = [
     id: 1,
     name: "Poção de Cura",
     description: "Restaura 50 pontos de vida",
-    equipmentType:EquipmentType.Fisic,
+    equipmentType:EquipmentType.PHYSICAL,
     element:EquipmentElement.FIRE,
     rarity:EquipmentRarity.SILVER
   }
+]
+
+//create one database for each skill type and i need has one dabate called CharSkills with an array for earch skill type.
+//guardar em cache
+export const MockCharSkills:CharSkills[] = [
+  { 
+    id:1,
+    damageSkills:[1],
+    passiveSkills:[1],
+    suportSkills:[1]
+  }
+]
+
+
+export const MockCharSupportSkills:SupportSkill []=[
+ {
+  id:1,
+  supportType:SupportSkillType.BUFF,
+  atributeAffected:"strength",
+  name:"Bola de Fogo",
+  description:"Aumenta a forca do personagem em 10% por 3 turnos",
+  cost:10,
+  coutdown:3,
+  skillBaseDamage:0,
+  skillMultiplierAttribute:CharAttributeList.strength,
+  skillMultiplyValue:0.1,
+  turnsEffected:3,
+  type:SkillType.ACTIVE
+ }
+]
+export const MockDamageSkills:DamageSkill []=[
+ {
+  id:1,
+  damageType:SkillDamageType.MAGIC,
+  damageValue:10,
+  name:"Bola de Fogo",
+  description:"Lança uma bola de fogo explodindo inimigos e aliados próximos",
+  cost:5,
+  coutdown:3,
+  skillBaseDamage:20,
+  skillMultiplierAttribute:CharAttributeList.intelligence,
+  skillMultiplyValue:1,
+  turnsEffected:3,
+  type:SkillType.ACTIVE
+ }
+]
+
+export const MockPassiveSkills:PassiveSkill []=[
+ {
+  id:1,
+  addedValue:2,
+  addedAttribute:CharAttributeList.armour,
+  name:"Vigor",
+  description:"Lança uma bola de fogo explodindo inimigos e aliados próximos",
+  cost:0,
+  coutdown:3,
+  skillBaseDamage:20,
+  skillMultiplierAttribute:CharAttributeList.intelligence,
+  skillMultiplyValue:1,
+  turnsEffected:3,
+  type:SkillType.ACTIVE
+ }
 ]

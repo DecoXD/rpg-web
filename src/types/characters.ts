@@ -48,7 +48,7 @@ export interface Character /*extends Models.Document*/ {
   name: string;
   level: number;
   imageUrl?: string;
-  skillsId:number[]
+  skillsListId:number
   gold: number;
   equipmentId:number
   attributesId: number;

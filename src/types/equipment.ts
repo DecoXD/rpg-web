@@ -1,6 +1,6 @@
 export enum EquipmentType{
-  Magic,
-  Fisic
+  PHYSICAL,
+  MAGIC
 }
 
 export enum EquipmentElement{
