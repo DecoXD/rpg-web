@@ -76,3 +76,9 @@ export interface CharSkills {
   damageSkills?:number[];
   passiveSkills?:number[];
 }
+
+export interface CharSkillList {
+  suportSkills?:SupportSkill[];
+  damageSkills?:DamageSkill[];
+  passiveSkills?:PassiveSkill[];
+}

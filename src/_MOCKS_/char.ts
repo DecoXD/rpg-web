@@ -50,8 +50,8 @@ export const mockCharacterAttributes:CharacterAttributes = {
 export const mockCharacterStatus:CharacterStatus = {
   id:1,
   hp: {
-    current: 487,
-    max: 637
+    current: 217,
+    max: 267
   },
   mp: {
     current: 5,
@@ -82,7 +82,7 @@ export const MockCharSkills:CharSkills[] = [
 ]
 
 
-export const MockCharSupportSkills:SupportSkill []=[
+export const MockCharSupportSkills:SupportSkill[]=[
  {
   id:1,
   supportType:SupportSkillType.BUFF,
@@ -98,6 +98,7 @@ export const MockCharSupportSkills:SupportSkill []=[
   type:SkillType.ACTIVE
  }
 ]
+
 export const MockDamageSkills:DamageSkill []=[
  {
   id:1,

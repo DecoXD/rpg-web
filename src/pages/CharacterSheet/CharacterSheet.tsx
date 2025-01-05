@@ -26,7 +26,7 @@ const CharacterSheet = () => {
       </section>
 
       {/* char skill list */}
-      <CharSkills/>
+      <CharSkills id={char.skillsListId}/>
       {/* Char equipment */}
       <CharEquipment/>
     </div>
