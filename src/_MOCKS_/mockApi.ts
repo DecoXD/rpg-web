@@ -65,12 +65,12 @@ const getSkillsMethodMap = {
 
 export const getAllSkillsBySkillList = (skillList: CharSkills):CharSkillList =>{
 
-  const skills = skillList.suportSkills?.map((id) => getSkillsMethodMap.suportSkills(id));
+  const suportSkills = skillList.suportSkills?.map((id) => getSkillsMethodMap.suportSkills(id));
   const damageSkills = skillList.damageSkills?.map((id) => getSkillsMethodMap.damageSkills(id));
   const passiveSkills = skillList.passiveSkills?.map((id) => getSkillsMethodMap.passiveSkills(id));
   
   return{
-    suportSkills:skills,
+    suportSkills:suportSkills,
     damageSkills:damageSkills,
     passiveSkills:passiveSkills
   }

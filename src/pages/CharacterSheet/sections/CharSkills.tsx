@@ -11,11 +11,11 @@ enum skillSections{
   passiveSkills,
   suportSkills
 }
-
+//todo send the skillList like parameter and render in returned component 
 const ComponentsMap:Record<skillSections,()=>JSX.Element> = {
   [skillSections.damageSkills]:() =><p>a</p>,
-  [skillSections.passiveSkills]:() =><p>b</p>,
-  [skillSections.suportSkills]:()=><p>c</p>,
+  [skillSections.suportSkills]:()=><p>b</p>,
+  [skillSections.passiveSkills]:() =><p>c</p>
 }
 
 const CharSkills = ({id}:CharSkillsProps) => {
@@ -24,9 +24,12 @@ const CharSkills = ({id}:CharSkillsProps) => {
     damageSkills:[],
     suportSkills:[]
   })
+  
 
+  //__MOCK__ skills that will be rendered in screen
   const [skillSection,setSkillSection] = useState<skillSections>(skillSections.passiveSkills)
   const skillsList = getSkillListById(id)
+  
   
   useEffect(() =>{
     if(skillsList){
@@ -40,11 +43,15 @@ const CharSkills = ({id}:CharSkillsProps) => {
   
   return (
     <div className="  p-4 border-[1px] border-amber-300/50 shadow-md w-full max-w-xl rounded-xl h-full">
+
       <h3 className='flex gap-2 font-medieval text-xl uppercase'><Flame className='text-red-500'/> Skills </h3>
-      <div className=" flex items-center h-full justify-center gap-2">
-      <p>damage</p>
-        <p>suporte</p>
-        <p>passiva</p>
+      
+      <div className=" flex flex-col items-center h-full justify-center gap-2">
+       <div className="flex justify-between p-2 w-full">
+        <p onClick={()=>setSkillSection(skillSections.damageSkills)}>damage</p>
+        <p onClick={()=>setSkillSection(skillSections.suportSkills)}>suporte</p>
+        <p onClick={()=>setSkillSection(skillSections.passiveSkills)}>passiva</p>
+       </div>
         {/* colocar as a skills aqui e renderizar por usestate */}
         <div className=" h-full
         ">
