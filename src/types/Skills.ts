@@ -11,32 +11,32 @@ export enum SkillElement{
 }
 
 export enum CharAttributeList  {
-  strength,
-  ability,
-  armour,
-  intelligence,
-  resistence,
-  wisdom,
-  tenacity,
-  damage,
-  defense
+  strength='strength',
+  ability='ability',
+  armour='armour',
+  intelligence='intelligence',
+  resistence='resistence',
+  wisdom='wisdom',
+  tenacity='tenacity',
+  damage='damage',
+  defense='defense'
   
 }
 
 export enum SkillDamageType{
-  PHYSICAL,
-  MAGIC
+  PHYSICAL='PHYSICAL',
+  MAGIC='MAGIC'
 }
 
 
 export enum SupportSkillType{
-  BUFF,
-  DEBUFF
+  BUFF = "BUFF",
+  DEBUFF = 'DEBUFF',
 }
 
 export enum SkillType {
-  ACTIVE,
-  PASSIVE
+  ACTIVE = "ACTIVE",
+  PASSIVE= "PASSIVE"
 }
 
 export type Skill = {
@@ -49,6 +49,7 @@ export type Skill = {
   skillMultiplyValue:number;
   cost:number;
   coutdown:number;
+  turnsToActivate?:number ;
   turnsEffected:number;
   type:SkillType
 }
