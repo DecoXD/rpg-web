@@ -2,7 +2,7 @@ import { getAllSkillsBySkillList, getSkillListById } from '@/_MOCKS_/mockApi'
 import DamageSkillsContainer from '@/components/shared/DamageSkillsContainer'
 import PassiveSkillsContainer from '@/components/shared/PassiveSkillsContainer'
 import SupportSkillsContainer from '@/components/shared/SupportSkillsContainer'
-import { CharSkillList } from '@/types/Skills'
+import { CharSkillList, Skill } from '@/types/Skills'
 import { Flame } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
@@ -14,6 +14,7 @@ enum skillSections{
   passiveSkills,
   suportSkills
 }
+
 //todo send the skillList like parameter and render in returned component 
 const ComponentsMap:Record<skillSections,(skillList:CharSkillList) =>JSX.Element> = {
   [skillSections.damageSkills]:(skillList) => <DamageSkillsContainer damageSkillList={skillList.damageSkills}/>,
@@ -33,7 +34,31 @@ const CharSkills = ({id}:CharSkillsProps) => {
   const [skillSection,setSkillSection] = useState<skillSections>(skillSections.damageSkills)
   const skillsList = getSkillListById(id)
   
-  //handleuseSkill function 
+  const handleSkillActivated = (skill:Skill)=>{
+    //verifiry if skill already in coutdown
+    const inCoutdown = skill.turnsToActivate!==undefined
+    if(inCoutdown){
+      window.alert('skill in coutdown')
+      return
+    }
+    //verify if player has enough mp
+    const hasEnoughMp = skill.cost <= 0 //todo get player mp
+    if(!hasEnoughMp){
+      window.alert('not enough mp')
+      return
+    }
+
+    //todo subtract mp from player
+    //todo roll dice to see if skill will be activated
+    //todo apply skill effect
+    //activate skill
+    skill.turnsToActivate = skill.coutdown
+
+
+
+  }
+
+
   useEffect(() =>{
     if(skillsList){
       const charSkillList = getAllSkillsBySkillList(skillsList)
