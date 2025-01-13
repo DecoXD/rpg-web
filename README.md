@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 >## STATUS: IN DEVELOPMENT...
 
 
@@ -40,4 +40,3 @@ A system where you can to manager character sheets and RPG histories created by 
 
 
 
->>>>>>> c2ab9f835dbecbcb1f888be6c64423dda98c6211
