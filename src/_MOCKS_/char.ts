@@ -110,9 +110,9 @@ export const MockDamageSkills:DamageSkill []=[
   cost:5,
   coutdown:3,
   skillBaseDamage:20,
-  turnsToActivate:3,
+  turnsToActivate:undefined,
   skillMultiplierAttribute:CharAttributeList.intelligence,
-  skillMultiplyValue:1,
+  skillMultiplyValue:5,
   turnsEffected:3,
   type:SkillType.ACTIVE
  },

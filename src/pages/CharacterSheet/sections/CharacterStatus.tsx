@@ -1,6 +1,7 @@
 import { getCharacterStatusById } from "@/_MOCKS_/mockApi"
+import { useCharContext } from "@/context/CharContext";
 import { Heart } from "lucide-react";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 
 
 
@@ -23,7 +24,7 @@ type StatusTable = {
     <span 
     style={{
     width:percent }} 
-    className={`${bgColor} text-center w-full`}>
+    className={`${bgColor} text-center w-full transition-all duration-1000`}>
 
       {children}
 
@@ -31,24 +32,29 @@ type StatusTable = {
   )
  }
 
+ const statusTable: StatusTable = {
+  "hp": {
+    label: 'Pontos de Vida(HP)',
+    bg: "bg-red-400"
+  },
+  'mp': {
+    label: "Pontos de Mana(MP)",
+    bg: 'bg-cyan-300'
+  }
+}
+
 
 const CharacterStatus = ({statusId}:CharacterStatusProps) => {
   const charStatus = getCharacterStatusById(statusId) 
+  const{setStatus,status:characterStatus} = useCharContext() 
+  if(!charStatus || !characterStatus ) return
 
-  if(!charStatus) return
+  const statusMap = Object.keys(characterStatus) 
 
-  const statusMap = Object.keys(charStatus) 
-
-  const statusTable: StatusTable = {
-    "hp": {
-      label: 'Pontos de Vida(HP)',
-      bg: "bg-red-400"
-    },
-    'mp': {
-      label: "Pontos de Mana(MP)",
-      bg: 'bg-cyan-300'
-    }
-  }
+  console.log(characterStatus)
+  useEffect(() =>{
+    setStatus(charStatus)
+  },[charStatus])
 
   return (
     <section className="p-4 w-full  flex flex-col gap-2 border-[1px] border-amber-300/50 shadow-md max-w-xl  rounded-lg">
@@ -58,7 +64,7 @@ const CharacterStatus = ({statusId}:CharacterStatusProps) => {
             statusMap.map((status:string,idx) =>{
               if(status=='id') return
               const statusVal = statusTable[status]
-              let currStatus = status == 'hp'? charStatus.hp :charStatus.mp
+              let currStatus = status == 'hp'? characterStatus.hp :characterStatus.mp
               //calcule for change life or mana bar width
               let statusBarPercent =   ( (currStatus.current/currStatus.max)*100 ).toFixed() +"%" 
              

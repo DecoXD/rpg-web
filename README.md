@@ -3,7 +3,7 @@
 
 
 # RPG-WEB
-A system where you can to manager character sheets and RPG histories created by youself.
+A system where you can manager character sheets and RPG histories created by youself.
 
 
 

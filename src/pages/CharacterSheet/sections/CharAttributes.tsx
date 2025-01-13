@@ -1,7 +1,9 @@
 import { getCharacterAttributesById } from '@/_MOCKS_/mockApi'
+import { useCharContext } from '@/context/CharContext'
 
 import { CharacterAttributes } from '@/types/characters'
 import { Swords } from 'lucide-react'
+import { useEffect } from 'react'
 
 type CharAttributesProps = {
   attributesId:number | undefined
@@ -14,11 +16,13 @@ const CharAttributes = ({attributesId}:CharAttributesProps) => {
   if(!attributesId) return <p>nao existem atributos.</p>
 
   const attributes = getCharacterAttributesById(attributesId) as CharacterAttributes
-
+  const {setAttributes} = useCharContext()
   if(!attributes) return <p>erro na consulta</p>
 
   const attributesMap = Object.keys(attributes)
-  
+  useEffect(() => {
+    setAttributes(attributes)
+  },[attributes])
  
   return (
     <section className='w-full '>

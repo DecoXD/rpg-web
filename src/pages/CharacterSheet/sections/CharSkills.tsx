@@ -2,6 +2,7 @@ import { getAllSkillsBySkillList, getSkillListById } from '@/_MOCKS_/mockApi'
 import DamageSkillsContainer from '@/components/shared/DamageSkillsContainer'
 import PassiveSkillsContainer from '@/components/shared/PassiveSkillsContainer'
 import SupportSkillsContainer from '@/components/shared/SupportSkillsContainer'
+import { useCharContext } from '@/context/CharContext'
 import { CharSkillList, SkillTypeList } from '@/types/Skills'
 import { Flame } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -33,8 +34,12 @@ const CharSkills = ({id}:CharSkillsProps) => {
   //__MOCK__ skills that will be rendered in screen
   const [skillSection,setSkillSection] = useState<skillSections>(skillSections.damageSkills)
   const skillsList = getSkillListById(id)
-  
+  const {attributes,status,setAttributes,setStatus} = useCharContext()
+
+
   const handleSkillActivated = (skillId:number,collection:SkillTypeList)=>{
+   
+    if(!attributes || !status) return
     //todo verify if skill list is empty
     const skillList = skills[collection]
    
@@ -48,6 +53,19 @@ const CharSkills = ({id}:CharSkillsProps) => {
         
         //todo set coutdown to skill
         skill.turnsToActivate = skill.coutdown;
+        //todo set skill damage
+        const skillDamage =attributes.damage + skill.skillBaseDamage + (attributes[skill.skillMultiplierAttribute] * skill.skillMultiplyValue)
+        //todo subtract mp from player character.
+        const mpIsEnough = status.mp.current - skill.cost >=0
+        if(mpIsEnough){
+          setStatus({
+            ...status,
+            mp:{
+              ...status.mp,
+              current:status.mp.current - skill.cost
+            }
+          })
+        }
 
         
         return skill
@@ -61,7 +79,7 @@ const CharSkills = ({id}:CharSkillsProps) => {
 
 
 
-    //todo subtract mp from player
+    
     //todo roll dice to see if skill will be activated
     //todo apply skill effect
     //activate skill
