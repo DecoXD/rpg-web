@@ -2,7 +2,7 @@ import { getAllSkillsBySkillList, getSkillListById } from '@/_MOCKS_/mockApi'
 import DamageSkillsContainer from '@/components/shared/DamageSkillsContainer'
 import PassiveSkillsContainer from '@/components/shared/PassiveSkillsContainer'
 import SupportSkillsContainer from '@/components/shared/SupportSkillsContainer'
-import { CharSkillList, DamageSkill, Skill, SkillTypeList } from '@/types/Skills'
+import { CharSkillList, SkillTypeList } from '@/types/Skills'
 import { Flame } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
@@ -18,7 +18,7 @@ enum skillSections{
 //todo send the skillList like parameter and render in returned component 
 const ComponentsMap:Record<skillSections,(skillList:CharSkillList,handler:(skillId:number,collection:SkillTypeList) => void) =>JSX.Element> = {
   [skillSections.damageSkills]:(skillList,handler) => <DamageSkillsContainer damageSkillList={skillList.damageSkills} handler={handler}/>,
-  [skillSections.suportSkills]:(skillList,handler) => <SupportSkillsContainer supportSkillList={skillList.suportSkills}/>,
+  [skillSections.suportSkills]:(skillList,handler) => <SupportSkillsContainer supportSkillList={skillList.suportSkills} handler={handler}/>,
   [skillSections.passiveSkills]:(skillList,handler) => <PassiveSkillsContainer passiveSkillList={skillList.passiveSkills}/>
 }
 
@@ -37,15 +37,18 @@ const CharSkills = ({id}:CharSkillsProps) => {
   const handleSkillActivated = (skillId:number,collection:SkillTypeList)=>{
     //todo verify if skill list is empty
     const skillList = skills[collection]
-    console.log(skillList)
+   
     if(!skillList){
       return
     }
     //todo get skill by  id
     const skill = skillList.map(skill =>{
+      if(!skill) return
       if(skill.id === skillId){
+        
         //todo set coutdown to skill
-        skill.turnsToActivate = skill.coutdown
+        skill.turnsToActivate = skill.coutdown;
+
         
         return skill
       }

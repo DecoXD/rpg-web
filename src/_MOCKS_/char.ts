@@ -54,8 +54,8 @@ export const mockCharacterStatus:CharacterStatus = {
     max: 267
   },
   mp: {
-    current: 5,
-    max: 10
+    current: 85,
+    max: 100
   }
 }
 

@@ -1,12 +1,13 @@
-import { SupportSkill } from "@/types/Skills"
+import { SkillTypeList, SupportSkill } from "@/types/Skills"
 import { Flame } from "lucide-react"
 import { Button } from "../ui/button"
 import clsx from "clsx"
 
 type SupportSkillContainerProps = {
   supportSkillList:SupportSkill[] | undefined
+  handler:(skillId:number,collection:SkillTypeList) => void
 }
-const SupportSkillsContainer = ({supportSkillList}:SupportSkillContainerProps) => {
+const SupportSkillsContainer = ({supportSkillList,handler}:SupportSkillContainerProps) => {
 
   if(!supportSkillList){
     return <p>no damage skills</p>
@@ -51,6 +52,8 @@ const SupportSkillsContainer = ({supportSkillList}:SupportSkillContainerProps) =
               </div>
               <div className=" flex flex-col gap-2">
                 <Button 
+                  disabled={skill.turnsToActivate!==undefined}
+                  onClick={() => handler(skill.id,SkillTypeList.suportSkills)}
                   className={`${skill.turnsToActivate?'bg-slate-500':'bg-green-700'} w-full p-1 text-xs  h-5 flex items-center `} 
                 >
                   {skill.turnsToActivate? skill.turnsToActivate : "activate"}
