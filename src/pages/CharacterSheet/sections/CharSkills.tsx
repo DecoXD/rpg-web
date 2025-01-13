@@ -2,7 +2,7 @@ import { getAllSkillsBySkillList, getSkillListById } from '@/_MOCKS_/mockApi'
 import DamageSkillsContainer from '@/components/shared/DamageSkillsContainer'
 import PassiveSkillsContainer from '@/components/shared/PassiveSkillsContainer'
 import SupportSkillsContainer from '@/components/shared/SupportSkillsContainer'
-import { CharSkillList, Skill } from '@/types/Skills'
+import { CharSkillList, DamageSkill, Skill, SkillTypeList } from '@/types/Skills'
 import { Flame } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
@@ -10,16 +10,16 @@ type CharSkillsProps = {
   id:number
 }
 enum skillSections{
-  damageSkills ,
+  damageSkills,
   passiveSkills,
-  suportSkills
+  suportSkills ,
 }
 
 //todo send the skillList like parameter and render in returned component 
-const ComponentsMap:Record<skillSections,(skillList:CharSkillList) =>JSX.Element> = {
-  [skillSections.damageSkills]:(skillList) => <DamageSkillsContainer damageSkillList={skillList.damageSkills}/>,
-  [skillSections.suportSkills]:(skillList) => <SupportSkillsContainer supportSkillList={skillList.suportSkills}/>,
-  [skillSections.passiveSkills]:(skillList) => <PassiveSkillsContainer passiveSkillList={skillList.passiveSkills}/>
+const ComponentsMap:Record<skillSections,(skillList:CharSkillList,handler:(skillId:number,collection:SkillTypeList) => void) =>JSX.Element> = {
+  [skillSections.damageSkills]:(skillList,handler) => <DamageSkillsContainer damageSkillList={skillList.damageSkills} handler={handler}/>,
+  [skillSections.suportSkills]:(skillList,handler) => <SupportSkillsContainer supportSkillList={skillList.suportSkills}/>,
+  [skillSections.passiveSkills]:(skillList,handler) => <PassiveSkillsContainer passiveSkillList={skillList.passiveSkills}/>
 }
 
 const CharSkills = ({id}:CharSkillsProps) => {
@@ -34,26 +34,44 @@ const CharSkills = ({id}:CharSkillsProps) => {
   const [skillSection,setSkillSection] = useState<skillSections>(skillSections.damageSkills)
   const skillsList = getSkillListById(id)
   
-  const handleSkillActivated = (skill:Skill)=>{
-    //verifiry if skill already in coutdown
-    const inCoutdown = skill.turnsToActivate!==undefined
-    if(inCoutdown){
-      window.alert('skill in coutdown')
+  const handleSkillActivated = (skillId:number,collection:SkillTypeList)=>{
+    //todo verify if skill list is empty
+    const skillList = skills[collection]
+    console.log(skillList)
+    if(!skillList){
       return
     }
-    //verify if player has enough mp
-    const hasEnoughMp = skill.cost <= 0 //todo get player mp
-    if(!hasEnoughMp){
-      window.alert('not enough mp')
+    //todo get skill by id
+    const skill = skillList.map(skill =>{
+      if(skill.id === skillId){
+        //todo set coutdown to skill
+        skill.turnsToActivate = skill.coutdown
+        
+        return skill
+      }
+      return skill
+    }) 
+
+    if(!skill){
       return
     }
+
+
 
     //todo subtract mp from player
     //todo roll dice to see if skill will be activated
     //todo apply skill effect
     //activate skill
-    skill.turnsToActivate = skill.coutdown
+    
 
+    //todo set skill in state
+    setSkills((prev) =>{
+      return {
+        ...prev,
+        [collection]:[...skill]
+      }
+    })
+    
 
 
   }
@@ -87,7 +105,7 @@ const CharSkills = ({id}:CharSkillsProps) => {
         <div className=" h-full w-full 
         ">
           {
-            ComponentsMap[skillSection](skills)
+            ComponentsMap[skillSection](skills,handleSkillActivated)
           }
         </div>
       </div>

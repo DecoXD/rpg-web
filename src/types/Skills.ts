@@ -10,6 +10,11 @@ export enum SkillElement{
   METAL
 }
 
+export enum SkillTypeList {
+  damageSkills='damageSkills',
+  suportSkills='suportSkills',
+  passiveSkills='passiveSkills'
+}
 
 
 export enum CharAttributeList  {

@@ -16,10 +16,11 @@ const PassiveSkillsContainer = ({passiveSkillList}:PassiveSkillContainerProps) =
 
       <ul className="flex flex-col gap-2">
         {passiveSkillList.map((skill) => (
-          <li key={skill.id} className="flex  gap-2  p-2 font-medieval border-b-[1px] border-amber-300/50">
-            <div className="">
+          <li key={skill.id} className="flex justify-between  gap-2  p-2 font-medieval border-b-[1px] border-amber-300/50">
+
+            <div className="flex gap-2">
               <Flame className="text-red-200"/>
-            </div>
+           
 
             <div className="flex flex-col gap-2 ">
                 <p className="font-bold text-sm font-medieval">{skill.name}</p>
@@ -30,6 +31,7 @@ const PassiveSkillsContainer = ({passiveSkillList}:PassiveSkillContainerProps) =
                   
            
                 </div>
+            </div> 
             </div>
 
             <div className="flex flex-col gap-2">

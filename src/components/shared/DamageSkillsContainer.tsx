@@ -1,11 +1,12 @@
-import { DamageSkill } from "@/types/Skills"
+import { DamageSkill, Skill, SkillTypeList } from "@/types/Skills"
 import { Flame, Sword } from "lucide-react"
 import { Button } from "../ui/button"
 
 type DamageSkillContainerProps = {
   damageSkillList:DamageSkill[] | undefined
+  handler:(skillId:number,collection:SkillTypeList) => void
 }
-const DamageSkillsContainer = ({damageSkillList}:DamageSkillContainerProps) => {
+const DamageSkillsContainer = ({damageSkillList,handler}:DamageSkillContainerProps) => {
 
   if(!damageSkillList){
     return <p>no damage skills</p>
@@ -15,7 +16,7 @@ const DamageSkillsContainer = ({damageSkillList}:DamageSkillContainerProps) => {
 
       <ul className="flex flex-col gap-2">
         {damageSkillList.map((skill) => (
-          <li key={skill.id} className="flex  gap-2  p-2 font-medieval border-b-[1px] border-amber-300/50">
+          <li key={skill.id} className="flex justify-between  gap-2  p-2 font-medieval border-b-[1px] border-amber-300/50">
             <div className="">
               <Flame className="text-red-200"/>
             </div>
@@ -41,6 +42,8 @@ const DamageSkillsContainer = ({damageSkillList}:DamageSkillContainerProps) => {
               </div>
               <div className=" flex flex-col gap-2">
                 <Button 
+                  disabled={skill.turnsToActivate!==undefined}
+                  onClick={() => handler(skill.id,SkillTypeList.damageSkills)}
                   className={`${skill.turnsToActivate?'bg-slate-500':'bg-green-700'} w-full p-1 text-xs  h-5 flex items-center `} 
                 >
                   {skill.turnsToActivate? skill.turnsToActivate : "activate"}</Button>
