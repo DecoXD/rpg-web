@@ -41,7 +41,7 @@ const CharSkills = ({id}:CharSkillsProps) => {
     if(!skillList){
       return
     }
-    //todo get skill by id
+    //todo get skill by  id
     const skill = skillList.map(skill =>{
       if(skill.id === skillId){
         //todo set coutdown to skill
