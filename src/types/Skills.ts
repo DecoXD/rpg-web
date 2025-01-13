@@ -10,6 +10,8 @@ export enum SkillElement{
   METAL
 }
 
+
+
 export enum CharAttributeList  {
   strength='strength',
   ability='ability',
