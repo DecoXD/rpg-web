@@ -1,4 +1,4 @@
-
+![Diagrama em branco - Página 1](https://github.com/user-attachments/assets/91655684-8e19-45f4-9248-7564df7724b2)
 >## STATUS: IN DEVELOPMENT...
 
 
@@ -20,5 +20,9 @@ A system where you can manager character sheets and RPG histories created by you
   - Evolve your char when complete quests and defeat monsters. 
 
 
+>## USE CASES.
+
+
+![Diagrama em branco - Página 1](https://github.com/user-attachments/assets/994c3d0e-b4df-4d13-a2aa-811011273195)
 
 
