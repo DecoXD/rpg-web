@@ -1,4 +1,4 @@
-![Diagrama em branco - Página 1](https://github.com/user-attachments/assets/91655684-8e19-45f4-9248-7564df7724b2)
+
 >## STATUS: IN DEVELOPMENT...
 
 
