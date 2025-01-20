@@ -1,4 +1,4 @@
-import { getAllSkillsBySkillList, getSkillListById } from '@/_MOCKS_/mockApi'
+import { getAllSkillsBySkillList, getSkillListById } from '@/_MOCKS_/services/skills'
 import DamageSkillsContainer from '@/components/shared/DamageSkillsContainer'
 import PassiveSkillsContainer from '@/components/shared/PassiveSkillsContainer'
 import SupportSkillsContainer from '@/components/shared/SupportSkillsContainer'
@@ -17,10 +17,10 @@ enum skillSections{
 }
 
 //todo send the skillList like parameter and render in returned component 
-const ComponentsMap:Record<skillSections,(skillList:CharSkillList,handler:(skillId:number,collection:SkillTypeList) => void) =>JSX.Element> = {
+const ComponentsMap:Record<skillSections,(skillList:CharSkillList,handler:(skillId:number,collection?:SkillTypeList) => void) =>JSX.Element> = {
   [skillSections.damageSkills]:(skillList,handler) => <DamageSkillsContainer damageSkillList={skillList.damageSkills} handler={handler}/>,
   [skillSections.suportSkills]:(skillList,handler) => <SupportSkillsContainer supportSkillList={skillList.suportSkills} handler={handler}/>,
-  [skillSections.passiveSkills]:(skillList,handler) => <PassiveSkillsContainer passiveSkillList={skillList.passiveSkills}/>
+  [skillSections.passiveSkills]:(skillList) => <PassiveSkillsContainer passiveSkillList={skillList.passiveSkills}/>
 }
 
 const CharSkills = ({id}:CharSkillsProps) => {
@@ -37,8 +37,8 @@ const CharSkills = ({id}:CharSkillsProps) => {
   const {attributes,status,setAttributes,setStatus} = useCharContext()
 
 
-  const handleSkillActivated = (skillId:number,collection:SkillTypeList)=>{
-   
+  const handleSkillActivated = (skillId:number,collection?:SkillTypeList)=>{
+    if(!collection) return
     if(!attributes || !status) return
     //todo verify if skill list is empty
     const skillList = skills[collection]
@@ -54,7 +54,7 @@ const CharSkills = ({id}:CharSkillsProps) => {
         //todo set coutdown to skill
         skill.turnsToActivate = skill.coutdown;
         //todo set skill damage
-        const skillDamage =attributes.damage + skill.skillBaseDamage + (attributes[skill.skillMultiplierAttribute] * skill.skillMultiplyValue)
+        const skillDamage = attributes.damage + skill.skillBaseDamage + (attributes[skill.skillMultiplierAttribute] * skill.skillMultiplyValue)
         //todo subtract mp from player character.
         const mpIsEnough = status.mp.current - skill.cost >=0
         if(mpIsEnough){
@@ -96,6 +96,7 @@ const CharSkills = ({id}:CharSkillsProps) => {
 
 
   }
+
 
 
   useEffect(() =>{

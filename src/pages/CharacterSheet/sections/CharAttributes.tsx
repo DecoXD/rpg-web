@@ -1,4 +1,4 @@
-import { getCharacterAttributesById } from '@/_MOCKS_/mockApi'
+import { getCharacterAttributesById } from '@/_MOCKS_/services/character'
 import { useCharContext } from '@/context/CharContext'
 
 import { CharacterAttributes } from '@/types/characters'

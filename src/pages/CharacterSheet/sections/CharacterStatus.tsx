@@ -1,4 +1,4 @@
-import { getCharacterStatusById } from "@/_MOCKS_/mockApi"
+import { getCharacterStatusById } from "@/_MOCKS_/services/character"
 import { useCharContext } from "@/context/CharContext";
 import { Heart } from "lucide-react";
 import { ReactNode, useEffect } from "react";
