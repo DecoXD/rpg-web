@@ -1,5 +1,5 @@
-import { Models } from 'appwrite';
-import { Accessories, Armour, Equipment, Weapon } from './equipment';
+
+import { Accessories, Armour, Weapon } from './equipment';
 
 
 
@@ -54,6 +54,7 @@ export interface Character /*extends Models.Document*/ {
   attributesId: number;
   statusId: number;
   inventoryId: number;
+  turnStatus: 'playing' | 'attacking' | 'waiting' | 'defending';
 }
 
 // export interface Character extends Models.Document {

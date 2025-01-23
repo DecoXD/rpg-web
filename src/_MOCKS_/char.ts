@@ -13,7 +13,8 @@ export const mockCharacterList:Character[] = [
     inventoryId:1,
     statusId:1,
     skillsListId:1,
-    level:120
+    level:120,
+    turnStatus:'attacking'
   }
 ]
 

@@ -9,4 +9,4 @@ export type PhysicalDamageDicesReturn = {
 export type AbilityDice= (diceValue:number,charAbilityPoints:number)=>AbilityDicesReturn
 
 
-export type PhysicalDamageDice = (charDamageValue:number,charStrenghtPoints:number,diceValue:number) =>PhysicalDamageDicesReturn 
+export type PhysicalDamageDice = (charDamageValue:number,charStrenghtPoints:number,isCritic:boolean) =>PhysicalDamageDicesReturn 
