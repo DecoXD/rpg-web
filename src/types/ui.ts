@@ -28,3 +28,13 @@ export type PortalAdventureContainerProps = {
   subtitle:string,
   box?:PortalAdventureBoxProps[]
 }
+
+export type CreateAdventureInputsProps = {
+  name:string,
+  placeholder?:string,
+  label:string,
+  isSelect?:boolean,
+  isTextArea?:boolean,
+  options?:string[],
+  type:string
+}

@@ -1,4 +1,4 @@
-import { AuthInputsProps, NavbarItensProps, PortalAdventureContainerProps } from "@/types/ui";
+import { AuthInputsProps, CreateAdventureInputsProps, NavbarItensProps, PortalAdventureContainerProps } from "@/types/ui";
 
 export const NavbarItens:NavbarItensProps[] = [
   {
@@ -78,4 +78,46 @@ export const portalAdventureConteiners:PortalAdventureContainerProps[]=[
       }
     ]
   },
+]
+
+
+export const createAdventureInputs:CreateAdventureInputsProps[] = [
+  {
+    name:'name',
+    placeholder:'choose campaign name',
+    label:'campaign name',
+    type:'',
+  },
+  {
+    name:'genre',
+    label:'campaign name',
+    type:'',
+    isSelect:true,
+    options:['Fantasy','School',"Horror","Comedy","Book based","Dark"]//create table genre 
+   
+  },
+  {
+    name:'subgenre',
+
+    label:'campaign name',
+    type:'',
+    isSelect:true,
+    options:['Medieval','Futuristic',"Old School","Vampire"]//create table subgenre 
+   
+  },
+  {
+    name:'description',
+    placeholder:'insert campaign description.',
+    label:'campaign name',
+    type:'',
+    isTextArea:true
+    
+  },
+  {
+    name:'name',
+    placeholder:'choose campaign name',
+    label:'campaign name',
+    type:'',
+  
+  }
 ]
