@@ -1,4 +1,4 @@
-import { CharacterAttributes } from "./characters";
+
 
 export enum SkillElement{
   FIRE,
@@ -62,14 +62,14 @@ export type Skill = {
 }
 
 export interface SupportSkill extends Skill{
-  supportType:SupportSkillType,
-  atributeAffected:string,
+  supportType:SupportSkillType;
+  atributeAffected:string;
   
 }
 
 export interface DamageSkill extends Skill{
-  damageType:SkillDamageType,
-  damageValue:number
+  damageType:SkillDamageType;
+  damageValue:number;
 }
 
 export interface PassiveSkill extends Skill{
