@@ -33,8 +33,7 @@ export type CreateAdventureInputsProps = {
   name:string,
   placeholder?:string,
   label:string,
-  isSelect?:boolean,
-  isTextArea?:boolean,
+  inputStyle?:string,
   options?:string[],
   type?:string
 }
