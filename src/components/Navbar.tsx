@@ -1,5 +1,5 @@
 import { NavbarItens } from "@/constantes"
-import { Shield, Sword } from "lucide-react"
+import { Shield } from "lucide-react"
 import { Link } from "react-router-dom"
 
 const Navbar = () => {

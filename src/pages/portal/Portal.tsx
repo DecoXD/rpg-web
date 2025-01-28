@@ -3,6 +3,7 @@ import PortalAdventureContainer from '@/components/shared/PortalAdventureContain
 import { Button } from '@/components/ui/button'
 import { portalAdventureConteiners } from '@/constantes'
 import { Play, Plus } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 
 const Portal = () => {
@@ -22,7 +23,7 @@ const Portal = () => {
         
           <div className="flex gap-10 justify-center w-full">
           
-              <Button className='py-5 px-10 bg-amber-300/60 text-black border-amber-300 border-2 hover:bg-amber-300'><Plus/> Criar Campanha</Button>       
+              <Link to={'/createadventure'} className=' flex py-2 px-10 bg-amber-300/60 text-black border-amber-300 border-2 hover:bg-amber-300 rounded-lg'><Plus/> Criar Campanha</Link>       
           
               <Button className='py-5 px-10 bg-amber-300/60 text-black border-amber-300 border-2 hover:bg-amber-300'><Play/>Entrar em Campanha</Button>
        

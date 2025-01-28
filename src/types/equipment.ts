@@ -42,6 +42,6 @@ export type Armour = {
 } | Equipment
 
 export type Accessories = {
-
+ ATTR:number
 } | Equipment
 

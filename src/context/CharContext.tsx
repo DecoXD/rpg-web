@@ -1,5 +1,5 @@
 import { mockCharacterStatus } from '@/_MOCKS_/char'
-import { getCharacterAttributesById } from '@/_MOCKS_/mockApi'
+
 import { CharacterAttributes, CharacterStatus } from '@/types/characters'
 import React from 'react'
 
