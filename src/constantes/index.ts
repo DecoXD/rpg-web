@@ -86,7 +86,6 @@ export const createAdventureInputs:CreateAdventureInputsProps[] = [
     name:'name',
     placeholder:'choose campaign name',
     label:'campaign name',
-    
     type:'text',
   },
   {
@@ -94,12 +93,14 @@ export const createAdventureInputs:CreateAdventureInputsProps[] = [
     label:'campaign name',
     type:'text',
     inputStyle:'select',
+    placeholder:"Select Genre",
     options:['Fantasy','School',"Horror","Comedy","Book based","Dark"]//create table genre 
    
   },
   {
     name:'subgenre',
-    label:'campaign name',
+    label:'Subgenre',
+    placeholder:"Select Subgenre",
     inputStyle:'select',
     options:['Medieval','Futuristic',"Old School","Vampire"]//create table subgenre 
    
@@ -108,7 +109,7 @@ export const createAdventureInputs:CreateAdventureInputsProps[] = [
     name:'description',
     placeholder:'insert campaign description.',
     inputStyle:'textarea',
-    label:'campaign name',
+    label:'Description',
     
 
 
