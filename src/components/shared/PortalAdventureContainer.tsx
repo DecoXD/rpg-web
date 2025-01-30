@@ -4,7 +4,7 @@ import PortalAdventureBox from './PortalAdventureBox'
 
 const PortalAdventureContainer = ({title,subtitle,box}:PortalAdventureContainerProps) => {
   return (
-    <section className='flex flex-col gap-4 w-full max-w-lg  p-4 py-8 rounded-xl bg-slate-50 shadow-md hover:scale-105 transition-all'>
+    <section className='flex flex-col gap-4 w-full max-w-lg  p-4 py-8 rounded-xl bg-white  shadow-lg hover:scale-105 transition-all'>
       <div className=" flex flex-col gap-3 items-center font-medieval">
         <h2 className='text-3xl'>
           {title}
