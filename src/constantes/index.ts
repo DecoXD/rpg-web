@@ -121,5 +121,12 @@ export const createAdventureInputs:CreateAdventureInputsProps[] = [
     label:'max players',
     type:'number',
   
+  },
+  {
+    name:'adventure_password',
+    placeholder:'insert adventures password',
+    label:'password (optional)',
+    type:'password',
+  
   }
 ]
